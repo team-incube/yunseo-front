@@ -1,6 +1,21 @@
 import { useState, useEffect } from "react";
 
 export default function SignUp() {
+  const [form, setForm] = useState({
+    name: "",
+    grade: "",
+    classnum: "",
+    number: "",
+    email: "",
+    password: "",
+    confirm: "",
+  });
+  const [errors, setErrors] = useState({});
+
+
+
+
+
   return (
     <div className="min-h-screen bg-background flex flex-col justify-center items-center p-4">
       <div className="bg-card shadow-lg rounded-xl p-8 w-full max-w-md">
@@ -52,7 +67,7 @@ export default function SignUp() {
                   name="grade"
                   className="appearance-none w-full border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring transition"
                 >
-                 <option value="" disabled>
+                  <option value="" disabled>
                     학년
                   </option>
                   <option value="1">1학년</option>
@@ -198,7 +213,7 @@ export default function SignUp() {
         </form>
         <div className="flex justify-center pt-4 mt-4 border-t border-gray-300">
           <div className="text-center">
-            <span className="text-sm font-semibold text-text">
+            <span className="text-sm font-medium text-text">
               이미 계정이 있으신가요?&nbsp;
             </span>
             <a
