@@ -12,9 +12,39 @@ export default function SignUp() {
   });
   const [errors, setErrors] = useState({});
 
+  const handleChange=(e)=>{
+    const {name,value}=e.target;
+    setForm((prev)=>({...prev,[name]:value}));
+  }
 
+  const validate = () => {
+    const newError = {};
+    const emailRegex = /^[A-Za-z0-9._%+-]+@gsm\.hs\.kr$/;
+    const pwRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[^\w\s]).{8,}$/;
 
+    if (!form.name) newError.name = "이름을 입력해 주세요";
+    if (!form.grade) newError.grade = "학년을 선택해 주세요";
+    if (!form.classnum) newError.classnum = "반을 선택해 주세요";
+    if (!form.number) newError.number = "번호를 선택해 주세요";
+    if (!form.email) {
+      newError.email = "이메일을 입력해 주세요";
+    } else if (!emailRegex.test(form.email)) {
+      newError.email = "@gsm.hs.kr만 사용 가능합니다";
+    }
+    if (!form.password){
+      newError.password="비밀번호를 입력해 주세요";
+    } else if(!pwRegex.test(form.password)){
+      newError.password="영문, 숫자, 특수문자를 포함한 8자 이상 비밀번호를 입력해 주세요";
+    }
+    if(!form.confirm){
+      newError.confirm="비밀번호 확인을 입력해 주세요";
+    }else if(form.confirm!==form.password){
+      newError.confirm="비밀번호가 일치하지 않습니다";
+    }
 
+    setErrors(newError);
+    return Object.key(newError).length===0;
+  };
 
   return (
     <div className="min-h-screen bg-background flex flex-col justify-center items-center p-4">
