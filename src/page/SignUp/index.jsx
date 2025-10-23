@@ -11,10 +11,15 @@ export default function SignUp() {
     confirm: "",
   });
   const [errors, setErrors] = useState({});
+  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
+
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: null }));
+    }
   };
 
   const validate = () => {
@@ -53,8 +58,9 @@ export default function SignUp() {
     if (validate()) {
       //서버로 데이터 전송
       console.log("데이터:", form);
+      setMessage("회원가입이 완료되었습니다.");
     } else {
-      console.log("실패", errors);
+      setMessage("");
     }
   };
 
@@ -99,6 +105,9 @@ export default function SignUp() {
               onChange={handleChange}
               className="w-full border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring transition"
             />
+            {errors.name && (
+              <p className="text-error text-xs mt-1">{errors.name}</p>
+            )}
           </div>
 
           <div>
@@ -134,6 +143,9 @@ export default function SignUp() {
                     d="M6 9l6 6 6-6"
                   />
                 </svg>
+                {errors.grade && (
+                  <p className="text-error text-xs mt-1">{errors.grade}</p>
+                )}
               </div>
 
               <div className="relative">
@@ -165,6 +177,9 @@ export default function SignUp() {
                     d="M6 9l6 6 6-6"
                   />
                 </svg>
+                {errors.classnum && (
+                  <p className="text-error text-xs mt-1">{errors.classnum}</p>
+                )}
               </div>
 
               <div className="relative">
@@ -197,6 +212,9 @@ export default function SignUp() {
                     d="M6 9l6 6 6-6"
                   />
                 </svg>
+                {errors.number && (
+                  <p className="text-error text-xs mt-1">{errors.number}</p>
+                )}
               </div>
             </div>
           </div>
@@ -224,6 +242,9 @@ export default function SignUp() {
                 인증요청
               </button>
             </div>
+            {errors.email && (
+              <p className="text-error text-xs mt-1">{errors.email}</p>
+            )}
           </div>
           {/*기능 구현 후 인증번호 입력칸 만들기*/}
           <div>
@@ -242,6 +263,9 @@ export default function SignUp() {
               onChange={handleChange}
               className="w-full border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring transition"
             />
+            {errors.password && (
+              <p className="text-error text-xs mt-1">{errors.password}</p>
+            )}
           </div>
           <div>
             <label
@@ -259,6 +283,9 @@ export default function SignUp() {
               onChange={handleChange}
               className="w-full border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring transition"
             />
+            {errors.confirm && (
+              <p className="text-error text-xs mt-1">{errors.confirm}</p>
+            )}
           </div>
           <button
             type="submit"
@@ -280,6 +307,11 @@ export default function SignUp() {
             </a>
           </div>
         </div>
+        {message && (
+          <p className="text-green-600 text-center font-semibold mt-4">
+            {message}
+          </p>
+        )}
       </div>
     </div>
   );
