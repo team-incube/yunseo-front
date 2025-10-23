@@ -12,10 +12,10 @@ export default function SignUp() {
   });
   const [errors, setErrors] = useState({});
 
-  const handleChange=(e)=>{
-    const {name,value}=e.target;
-    setForm((prev)=>({...prev,[name]:value}));
-  }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
 
   const validate = () => {
     const newError = {};
@@ -31,19 +31,31 @@ export default function SignUp() {
     } else if (!emailRegex.test(form.email)) {
       newError.email = "@gsm.hs.kr만 사용 가능합니다";
     }
-    if (!form.password){
-      newError.password="비밀번호를 입력해 주세요";
-    } else if(!pwRegex.test(form.password)){
-      newError.password="영문, 숫자, 특수문자를 포함한 8자 이상 비밀번호를 입력해 주세요";
+    if (!form.password) {
+      newError.password = "비밀번호를 입력해 주세요";
+    } else if (!pwRegex.test(form.password)) {
+      newError.password =
+        "영문, 숫자, 특수문자를 포함한 8자 이상 비밀번호를 입력해 주세요";
     }
-    if(!form.confirm){
-      newError.confirm="비밀번호 확인을 입력해 주세요";
-    }else if(form.confirm!==form.password){
-      newError.confirm="비밀번호가 일치하지 않습니다";
+    if (!form.confirm) {
+      newError.confirm = "비밀번호 확인을 입력해 주세요";
+    } else if (form.confirm !== form.password) {
+      newError.confirm = "비밀번호가 일치하지 않습니다";
     }
 
     setErrors(newError);
-    return Object.key(newError).length===0;
+    return Object.keys(newError).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (validate()) {
+      //서버로 데이터 전송
+      console.log("데이터:", form);
+    } else {
+      console.log("실패", errors);
+    }
   };
 
   return (
@@ -70,7 +82,7 @@ export default function SignUp() {
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-text mt-2">회원가입</h1>
         </div>
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <label
               htmlFor="name"
@@ -83,7 +95,9 @@ export default function SignUp() {
               type="text"
               name="name"
               placeholder="이름을 입력하세요"
-              className="w-full border border-border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring transition"
+              value={form.name}
+              onChange={handleChange}
+              className="w-full border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring transition"
             />
           </div>
 
@@ -95,6 +109,8 @@ export default function SignUp() {
               <div className="relative">
                 <select
                   name="grade"
+                  value={form.grade}
+                  onChange={handleChange}
                   className="appearance-none w-full border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring transition"
                 >
                   <option value="" disabled>
@@ -123,6 +139,8 @@ export default function SignUp() {
               <div className="relative">
                 <select
                   name="classnum"
+                  value={form.classnum}
+                  onChange={handleChange}
                   className="appearance-none w-full border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring transition"
                 >
                   <option value="" disabled>
@@ -152,6 +170,8 @@ export default function SignUp() {
               <div className="relative">
                 <select
                   name="number"
+                  value={form.number}
+                  onChange={handleChange}
                   className="appearance-none w-full border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring transition"
                 >
                   <option value="" disabled>
@@ -193,6 +213,8 @@ export default function SignUp() {
                 type="email"
                 name="email"
                 placeholder="이메일을 입력해주세요"
+                value={form.email}
+                onChange={handleChange}
                 className="w-full border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring transition"
               />
               <button
@@ -216,6 +238,8 @@ export default function SignUp() {
               type="password"
               name="password"
               placeholder="비밀번호를 입력해주세요"
+              value={form.password}
+              onChange={handleChange}
               className="w-full border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring transition"
             />
           </div>
@@ -231,6 +255,8 @@ export default function SignUp() {
               type="password"
               name="confirm"
               placeholder="비밀번호를 다시 입력하세요"
+              value={form.confirm}
+              onChange={handleChange}
               className="w-full border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring transition"
             />
           </div>
