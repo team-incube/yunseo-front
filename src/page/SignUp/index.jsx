@@ -14,6 +14,18 @@ export default function SignUp() {
   const [message, setMessage] = useState("");
 
 
+  const [isCodeSent, setIsCodeSent]=useState(false);
+  const [verificationCode,setVerifiedCode]=useState("");
+  const [isVerified,setIsverified]=useState(false);
+  const [timer, setTimer]=useState(180);
+
+  useEffect(()=>{
+    if(isCodeSent&&timer>0){
+      const interval=setInterval(()=>setTimer((t)=>t-1),1000);
+      return ()=>clearInterval(interval);
+    }
+  },[isCodeSent,timer]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
