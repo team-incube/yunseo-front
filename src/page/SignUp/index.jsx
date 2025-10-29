@@ -13,6 +13,7 @@ export default function SignUp() {
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
@@ -41,11 +42,6 @@ export default function SignUp() {
     } else if (!pwRegex.test(form.password)) {
       newError.password =
         "영문, 숫자, 특수문자를 포함한 8자 이상 비밀번호를 입력해 주세요";
-    }
-    if (!form.confirm) {
-      newError.confirm = "비밀번호 확인을 입력해 주세요";
-    } else if (form.confirm !== form.password) {
-      newError.confirm = "비밀번호가 일치하지 않습니다";
     }
 
     setErrors(newError);
@@ -267,26 +263,7 @@ export default function SignUp() {
               <p className="text-error text-xs mt-1">{errors.password}</p>
             )}
           </div>
-          <div>
-            <label
-              htmlFor="confirm"
-              className="block text-sm font-bold text-text mb-1"
-            >
-              비밀번호 확인
-            </label>
-            <input
-              id="confirm"
-              type="password"
-              name="confirm"
-              placeholder="비밀번호를 다시 입력하세요"
-              value={form.confirm}
-              onChange={handleChange}
-              className="w-full border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring transition"
-            />
-            {errors.confirm && (
-              <p className="text-error text-xs mt-1">{errors.confirm}</p>
-            )}
-          </div>
+
           <button
             type="submit"
             className="w-full bg-primary text-white rounded-lg px-4 py-2 font-bold hover:bg-primary/90 disabled:bg-gray-400 transition-colors focus:outline-none"
