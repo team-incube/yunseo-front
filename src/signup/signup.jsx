@@ -1,4 +1,4 @@
-import { SignupInput, SignupSelect } from "./index";
+import { SignupInput, SignupSelect, SignupButton } from "./index";
 import { Logo } from "../assets/Logo";
 import { Link } from "react-router-dom";
 
@@ -78,12 +78,7 @@ export default function SignUp() {
                 className="w-full border border-[#d1d5db] rounded-md px-3 py-2 bg-white
                            focus:outline-none focus:ring-2 focus:ring-[#3b82f6]/50 transition"
               />
-              <button
-                type="button"
-                className="flex-shrink-0 bg-[#3b82f6] text-white text-sm rounded-lg px-4 py-2 font-bold hover:bg-[#3b82f6]/90 transition-colors"
-              >
-                인증요청
-              </button>
+              <SignupButton type="button">인증요청</SignupButton>
             </div>
           </div>
 
@@ -95,12 +90,9 @@ export default function SignUp() {
             placeholder="비밀번호를 입력해주세요"
           />
 
-          <button
-            type="submit"
-            className="w-full bg-[#3b82f6] text-white rounded-lg px-4 py-2 font-bold hover:bg-[#3b82f6]/90 disabled:bg-gray-400 transition-colors focus:outline-none"
-          >
+          <SignupButton type="submit" className="w-full py-2.5">
             회원가입
-          </button>
+          </SignupButton>
         </form>
 
         <div className="flex justify-center pt-4 mt-4 border-t border-gray-300">

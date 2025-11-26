@@ -30,3 +30,18 @@ export function SignupSelect({ children, ...props }) {
     </div>
   );
 }
+
+export function SignupButton({ children, className = "", ...props }) {
+  return (
+    <button
+      {...props}
+      className={
+        "bg-[#3b82f6] text-white text-sm rounded-lg px-4 py-2 font-bold hover:bg-[#3b82f6]/90 transition-colors whitespace-nowrap flex-shrink-0 " +
+        className
+      }
+    >
+      {children}
+    </button>
+  );
+}
+
