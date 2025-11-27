@@ -12,9 +12,9 @@ export default function SignUp() {
           </div>
         </div>
 
-        <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-text mt-2">회원가입</h1>
-        </div>
+        <h1 className="text-2xl font-bold text-text text-center mb-8 mt-2">
+          회원가입
+        </h1>
 
         <form className="space-y-4">
           <SignupInput
