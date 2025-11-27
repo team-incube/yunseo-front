@@ -3,6 +3,19 @@ import { Logo } from "../assets/Logo";
 import { Link } from "react-router-dom";
 
 export default function SignUp() {
+  const GRADES = [
+    { value: "1", label: "1학년" },
+    { value: "2", label: "2학년" },
+    { value: "3", label: "3학년" },
+  ];
+
+  const CLASS_NUMS = [
+    { value: "1", label: "1반" },
+    { value: "2", label: "2반" },
+    { value: "3", label: "3반" },
+    { value: "4", label: "4반" },
+  ];
+
   return (
     <div className="min-h-screen bg-[#ffffff] flex flex-col justify-center items-center p-4">
       <div className="bg-card shadow-lg rounded-xl p-8 w-full max-w-md">
@@ -34,19 +47,22 @@ export default function SignUp() {
                 <option value="" disabled>
                   학년
                 </option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
+                {GRADES.map((g) => (
+                  <option key={g.value} value={g.value}>
+                    {g.label}
+                  </option>
+                ))}
               </SignupSelect>
 
               <SignupSelect name="classnum" defaultValue="">
                 <option value="" disabled>
                   반
                 </option>
-                <option value="1">1반</option>
-                <option value="2">2반</option>
-                <option value="3">3반</option>
-                <option value="4">4반</option>
+                {CLASS_NUMS.map((c) => (
+                  <option key={c.value} value={c.value}>
+                    {c.label}
+                  </option>
+                ))}
               </SignupSelect>
 
               <SignupSelect name="number" defaultValue="">
