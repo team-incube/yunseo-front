@@ -35,7 +35,7 @@ export default function SignUp() {
             label="이름"
             name="name"
             type="text"
-            placeholder="이름을 입력하세요"
+            placeholder="이름을 입력해주세요"
           />
 
           <div>
@@ -113,12 +113,12 @@ export default function SignUp() {
 
         <div className="flex justify-center pt-4 mt-4 border-t border-gray-300">
           <div className="text-center">
-            <span className="text-sm font-semibold text-text">
+            <span className="text-sm font-medium text-text">
               이미 계정이 있으신가요?&nbsp;
             </span>
             <Link
               to="/login"
-              className="text-sm font-semibold text-text hover:text-text/80 transition-colors"
+              className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
             >
               로그인 하기
             </Link>
