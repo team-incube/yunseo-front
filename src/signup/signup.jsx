@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 export default function SignUp() {
   return (
     <div className="min-h-screen bg-[#ffffff] flex flex-col justify-center items-center p-4">
-      <div className="bg-[#f1f5f9] shadow-lg rounded-xl p-8 w-full max-w-md">
+      <div className="bg-card shadow-lg rounded-xl p-8 w-full max-w-md">
         <div className="flex justify-center">
-          <div className="w-16 h-16 bg-[#3b82f6] rounded-full flex items-center justify-center">
+          <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
             <Logo className="w-8 h-8 text-white" />
           </div>
         </div>
 
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-[#1e3a8a] mt-2">회원가입</h1>
+          <h1 className="text-2xl font-bold text-text mt-2">회원가입</h1>
         </div>
 
         <form className="space-y-4">
@@ -26,7 +26,7 @@ export default function SignUp() {
           />
 
           <div>
-            <label className="block text-sm font-bold text-[#1e3a8a] mb-1">
+            <label className="block text-sm font-bold text-text mb-1">
               학년/반/번호
             </label>
             <div className="grid grid-cols-3 gap-3">
@@ -65,7 +65,7 @@ export default function SignUp() {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-bold text-[#1e3a8a] mb-1"
+              className="block text-sm font-bold text-text mb-1"
             >
               이메일
             </label>
@@ -75,8 +75,8 @@ export default function SignUp() {
                 type="email"
                 name="email"
                 placeholder="이메일을 입력해주세요"
-                className="w-full border border-[#d1d5db] rounded-md px-3 py-2 bg-white
-                           focus:outline-none focus:ring-2 focus:ring-[#3b82f6]/50 transition"
+                className="w-full border border-border rounded-md px-3 py-2 bg-white
+                           focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
               />
               <SignupButton type="button">인증요청</SignupButton>
             </div>
@@ -97,12 +97,12 @@ export default function SignUp() {
 
         <div className="flex justify-center pt-4 mt-4 border-t border-gray-300">
           <div className="text-center">
-            <span className="text-sm font-semibold text-[#1e3a8a]">
+            <span className="text-sm font-semibold text-text">
               이미 계정이 있으신가요?&nbsp;
             </span>
             <Link
               to="/login"
-              className="text-sm font-semibold text-[#3b82f6] hover:text-[#3b82f6]/80 transition-colors"
+              className="text-sm font-semibold text-text hover:text-text/80 transition-colors"
             >
               로그인 하기
             </Link>

@@ -3,15 +3,15 @@ export function SignupInput({ label, id, ...props }) {
     <div>
       <label
         htmlFor={id}
-        className="block text-sm font-bold text-[#1e3a8a] mb-1"
+        className="block text-sm font-bold text-text mb-1"
       >
         {label}
       </label>
       <input
         id={id}
         {...props}
-        className="w-full border border-[#d1d5db] rounded-md px-3 py-2 bg-white
-                   focus:outline-none focus:ring-2 focus:ring-[#3b82f6]/50 transition"
+        className="w-full border border-border rounded-md px-3 py-2 bg-white
+                   focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
       />
     </div>
   );
@@ -22,8 +22,8 @@ export function SignupSelect({ children, ...props }) {
     <div className="relative">
       <select
         {...props}
-        className="appearance-none w-full border border-[#d1d5db] rounded-lg px-3 py-2 bg-white
-                   focus:outline-none focus:ring-2 focus:ring-[#3b82f6]/50 transition"
+        className="appearance-none w-full border border-border rounded-lg px-3 py-2 bg-white
+                   focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
       >
         {children}
       </select>
@@ -36,7 +36,7 @@ export function SignupButton({ children, className = "", ...props }) {
     <button
       {...props}
       className={
-        "bg-[#3b82f6] text-white text-sm rounded-lg px-4 py-2 font-bold hover:bg-[#3b82f6]/90 transition-colors whitespace-nowrap flex-shrink-0 " +
+        "bg-primary text-white text-sm rounded-lg px-4 py-2 font-bold hover:bg-primary/90 transition-colors whitespace-nowrap flex-shrink-0 " +
         className
       }
     >
