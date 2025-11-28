@@ -1,8 +1,8 @@
 import React from "react";
 
-export function Logo({className="w-8 h-8 text-white"}){
-    return (
-        <svg
+export function Logo({ className = "w-8 h-8 text-white" }) {
+  return (
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="none"
@@ -16,5 +16,5 @@ export function Logo({className="w-8 h-8 text-white"}){
       <path d="M22 10v6" />
       <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
     </svg>
-    );
+  );
 }

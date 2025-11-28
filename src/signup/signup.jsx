@@ -21,7 +21,7 @@ export default function SignUp() {
       <div className="bg-card shadow-lg rounded-xl p-8 w-full max-w-md">
         <div className="flex justify-center">
           <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-            <Logo className="w-8 h-8 text-white" />
+            <Logo />
           </div>
         </div>
 
