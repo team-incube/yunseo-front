@@ -1,4 +1,6 @@
-import { SignupInput, SignupSelect, SignupButton } from "./index";
+import { Button } from "../components/Button";
+import { Input } from "../components/Input";
+import { Select } from "../components/Select";
 import { Logo } from "../assets/Logo";
 import { Link } from "react-router-dom";
 
@@ -30,7 +32,7 @@ export default function SignUp() {
         </h1>
 
         <form className="space-y-4">
-          <SignupInput
+          <Input
             id="name"
             label="이름"
             name="name"
@@ -43,7 +45,7 @@ export default function SignUp() {
               학년/반/번호
             </label>
             <div className="grid grid-cols-3 gap-3">
-              <SignupSelect name="grade" defaultValue="">
+              <Select name="grade" defaultValue="">
                 <option value="" disabled>
                   학년
                 </option>
@@ -52,9 +54,9 @@ export default function SignUp() {
                     {g.label}
                   </option>
                 ))}
-              </SignupSelect>
+              </Select>
 
-              <SignupSelect name="classnum" defaultValue="">
+              <Select name="classnum" defaultValue="">
                 <option value="" disabled>
                   반
                 </option>
@@ -63,9 +65,9 @@ export default function SignUp() {
                     {c.label}
                   </option>
                 ))}
-              </SignupSelect>
+              </Select>
 
-              <SignupSelect name="number" defaultValue="">
+              <Select name="number" defaultValue="">
                 <option value="" disabled>
                   번호
                 </option>
@@ -74,7 +76,7 @@ export default function SignUp() {
                     {i + 1}번
                   </option>
                 ))}
-              </SignupSelect>
+              </Select>
             </div>
           </div>
 
@@ -86,19 +88,18 @@ export default function SignUp() {
               이메일
             </label>
             <div className="flex gap-3">
-              <input
+              <Input
                 id="email"
-                type="email"
                 name="email"
+                type="email"
                 placeholder="이메일을 입력해주세요"
-                className="w-full border border-border rounded-md px-3 py-2 bg-white
-                           focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
+                label=""
               />
-              <SignupButton type="button">인증요청</SignupButton>
+              <Button type="button">인증요청</Button>
             </div>
           </div>
 
-          <SignupInput
+          <Input
             id="password"
             label="비밀번호"
             name="password"
@@ -106,9 +107,9 @@ export default function SignUp() {
             placeholder="비밀번호를 입력해주세요"
           />
 
-          <SignupButton type="submit" className="w-full py-2.5">
+          <Button type="submit" className="w-full py-2.5">
             회원가입
-          </SignupButton>
+          </Button>
         </form>
 
         <div className="flex justify-center pt-4 mt-4 border-t border-gray-300">
