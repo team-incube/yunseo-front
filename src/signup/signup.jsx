@@ -118,7 +118,7 @@ export default function SignUp() {
               이미 계정이 있으신가요?&nbsp;
             </span>
             <Link
-              to="/login"
+              to="/signin"
               className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
             >
               로그인 하기
