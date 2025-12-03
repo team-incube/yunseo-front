@@ -3,32 +3,41 @@ import { useState } from "react";
 import { Button } from "../components/Button";
 import { Shuffle } from "../assets/Shuffle";
 import { Input } from "../components/Input";
-import { CleaningAreaItem } from "./index";
+import { CleaningAreaItem, CleaningAreaAssignItem } from "./index";
+
+//예시 데이터
+const MOCK_STUDENTS = [
+  { id: "s1", name: "김철수" },
+  { id: "s2", name: "이영희" },
+  { id: "s3", name: "박민수" },
+];
+
+const MOCK_CLEANING_AREAS = [
+  {
+    id: 1,
+    name: "복도 1층",
+    description: "1층 중앙 복도 청소",
+    assignedStudentIds: [],
+  },
+  {
+    id: 2,
+    name: "계단",
+    description: "1~2층 계단 청소",
+    assignedStudentIds: ["s1"],
+  },
+];
 
 export default function CleaningArea() {
   const [tab, setTab] = useState("areas");
-  //예시 데이터
-  const cleaningAreas = [
-    {
-      id: 1,
-      name: "복도 1층",
-      description: "1층 중앙 복도 청소",
-      assignedStudent: 0,
-    },
-    {
-      id: 2,
-      name: "계단",
-      description: "1~2층 계단 청소",
-      assignedStudent: 1,
-    },
-  ];
+  const students = MOCK_STUDENTS;
+  const cleaningAreas = MOCK_CLEANING_AREAS;
 
   return (
     <div className="min-h-screen bg-background">
       <header className="bg-card border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center">
           <Link
-            to="/"
+            to="/dashboard"
             className="flex items-center gap-2 text-sm text-text hover:text-primary transition-colors"
           >
             <span className="text-lg">←</span>
@@ -82,6 +91,16 @@ export default function CleaningArea() {
                 랜덤 배정
               </Button>
             </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {cleaningAreas.map((area) => (
+                <CleaningAreaAssignItem
+                  key={area.id}
+                  area={area}
+                  students={students}
+                />
+              ))}
+            </div>
           </section>
         )}
 
@@ -112,7 +131,6 @@ export default function CleaningArea() {
                   name="areaName"
                   type="text"
                   placeholder="예: 교무실"
-                  label=""
                   className="!bg-card"
                 />
                 <label
@@ -126,7 +144,7 @@ export default function CleaningArea() {
                   name="areaDescription"
                   type="text"
                   placeholder="예: 교무실 청소 및 정리"
-                  className="!bg-card "
+                  className="!bg-card"
                 />
                 <Button className="w-full">+ 구역 추가</Button>
               </div>
