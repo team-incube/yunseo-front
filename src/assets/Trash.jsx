@@ -1,4 +1,4 @@
-export default function Trash({ color = "#ef4444", size = 20, ...props }) {
+export function Trash({ color = "#ef4444", size = 20, ...props }) {
   return (
     <svg 
       xmlns="http://www.w3.org/2000/svg" 

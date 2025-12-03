@@ -1,17 +1,19 @@
-export function MapPin({ className = "w-6 h-6 text-primary/80" }) {
+export function MapPin({ color = "#60A5FA", size = 24, ...props }) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      width={size} 
+      height={size} 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke={color} 
+      strokeWidth="2" 
+      strokeLinecap="round" 
       strokeLinejoin="round"
-      className={className}
+      {...props}
     >
-      <path d="M12 21s-5.5-6.1-5.5-11A5.5 5.5 0 0 1 12 4a5.5 5.5 0 0 1 5.5 5.5C17.5 14.9 12 21 12 21z" />
-      <circle cx="12" cy="9.5" r="2" />
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 4.54 4.96 9.86 6.21 11.1a.9.9 0 0 0 1.58 0C14.04 18.86 19 13.54 19 9c0-3.87-3.13-7-7-7z" />
+      <circle cx="12" cy="9" r="3" />
     </svg>
   );
 }
